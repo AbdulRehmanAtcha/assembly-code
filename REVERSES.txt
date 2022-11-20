@@ -1,0 +1,26 @@
+dosseg
+.model small
+.stack 100h
+.data
+string db 'Hello$'
+.code
+Main proc
+Mov ax,@data
+Mov ds,ax
+Mov si, offset string
+Mov cx, 5
+L1:
+Mov bx, [si]
+Push bx
+inc si
+Loop L1
+Mov cx, 5
+L2:
+Pop dx
+Mov ah, 2
+INT 21h
+Loop L2
+Mov ah, 4ch
+INT 21h
+Main endp
+End Main

@@ -1,0 +1,27 @@
+dosseg
+.model small
+.stack 100h
+.data
+first db ?
+second db ?
+.code
+Main proc
+mov ax,@data
+mov ds,ax
+mov ax,27
+mov bl,5
+div bl
+mov first,al
+mov second,ah
+mov dl,first
+mov dl,50
+mov ah,2
+int 21h
+mov dl,second
+add dl,48
+mov ah,2
+int 21h
+mov ah,4ch
+int 21h
+Main endp
+end Main

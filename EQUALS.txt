@@ -1,0 +1,48 @@
+dosseg
+.model small
+.stack 100h
+.data
+msg1 db 10, 13, 'Equals$'
+msg2 db 10, 13, 'Not Equals$'
+msg3 db 10, 13, 'Enter First Number: $'
+msg4 db 10, 13, 'Enter Second Number: $'
+
+.code
+Main proc
+Mov ax, @data
+Mov ds, ax
+Mov dx, offset msg3
+Mov ah, 9
+INT 21h
+
+Mov ah, 1
+INT 21h
+MOV bl, al
+
+Mov dx, offset msg4
+Mov ah, 9
+INT 21h
+
+Mov ah,1
+Int 21h
+CMP bl, al
+
+JE L1
+Mov dx, offset msg2
+Mov ah,9
+INT 21h
+Mov ah,4ch
+INT 21h
+
+
+
+L1:
+Mov dx, offset msg1
+Mov ah,9
+INT 21h
+Mov ah, 4ch
+INT 21h
+
+
+Main endp
+end Main

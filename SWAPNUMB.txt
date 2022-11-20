@@ -1,0 +1,28 @@
+dosseg
+.model small
+.stack 100h
+.data
+.code
+Main proc
+Mov ax, '1'
+Mov bx, '3'
+
+Push ax
+Push bx
+
+Pop ax
+Pop bx
+
+Mov dx, ax
+Mov ah, 2
+INT 21h
+
+Mov dx, bx
+Mov ah, 2
+INT 21h
+
+Mov ah, 4ch
+INT 21h
+Main endp
+End Main
+

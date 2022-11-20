@@ -1,0 +1,23 @@
+dosseg
+.model small
+.stack 100H
+.data
+.code
+Main proc
+Mov Cx, 10
+Mov dx, 48
+
+LO1:
+Mov ah, 2
+INT 21h
+
+Inc dx
+
+LOOP LO1
+Mov ah, 4ch
+INT 21h
+Main endp
+End Main
+
+
+
